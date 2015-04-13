@@ -1,0 +1,10 @@
+---
+
+- name: Rimozione PowerBroker
+  apt: name={{ item }} state=absent purge=yes
+  sudo: yes
+  with_items:
+    - pibs-open-legacy
+    - pibs-open
+    - pbis-open-gui
+    - pbis-open-upgrade

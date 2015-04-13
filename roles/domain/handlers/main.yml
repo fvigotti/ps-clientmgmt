@@ -1,0 +1,9 @@
+---
+
+- name: restart lightdm
+  service: name=lightdm state=restarted
+  sudo: yes
+
+- name: restart networking
+  service: name=networking state=restarted
+  sudo: yes

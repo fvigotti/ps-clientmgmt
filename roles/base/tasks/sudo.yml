@@ -1,0 +1,5 @@
+---
+
+- name: Abilito utente di base al sudo senza password
+  replace: dest=/etc/sudoers regexp="^%sudo.*$" replace="%sudo  ALL=(ALL:ALL) NOPASSWD:ALL"
+  sudo: yes

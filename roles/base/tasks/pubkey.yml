@@ -1,0 +1,4 @@
+---
+
+- name: "Copia le chiavi pubbliche dell'utente root"
+  authorized_key: user=syntaxerrormmm key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"

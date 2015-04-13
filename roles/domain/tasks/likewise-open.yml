@@ -1,0 +1,15 @@
+---
+# Gestione del download e scaricamento di likewise-open
+
+- name: Scarico likewise-open
+  get_url: url={{ item }} dest=/tmp/
+  with_items:
+    - http://de.archive.ubuntu.com/ubuntu/pool/main/l/likewise-open/likewise-open_6.1.0.406-0ubuntu10_i386.deb
+    - http://de.archive.ubuntu.com/ubuntu/pool/universe/l/likewise-open/likewise-open-gui_6.1.0.406-0ubuntu10_i386.deb
+
+- name: Installazione likewise-open
+  shell: dpkg -i /tmp/likewise-open*.deb
+  sudo: yes
+
+- name: Pulizia
+  shell: rm -f /tmp/likewise-open*.deb
