@@ -3,7 +3,19 @@
 - name: restart samba
   service: name=samba state=restarted
   sudo: yes
+  when: ansible_distribution != 'Ubuntu'
 
 - name: restart winbind
   service: name=winbind state=restarted
   sudo: yes
+  when: ansible_distribution != 'Ubuntu'
+
+- name: restart samba
+  shell: restart smbd
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: restart winbind
+  shell: restart winbind
+  sudo: yes
+  when: ansible_distribution == 'Ubuntu'
