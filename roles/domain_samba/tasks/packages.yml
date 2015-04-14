@@ -1,0 +1,7 @@
+---
+
+- name: Installazione pacchetti base
+  apt: name={{ item }} state=present
+  with_items:
+    - winbind
+    - samba
