@@ -1,0 +1,9 @@
+---
+
+- name: Backup smb.conf originale
+  shell: cp /etc/samba/smb.conf /etc/samba/smb.conf.orig
+  sudo: yes
+
+- name: Configurazione smb.conf
+  template: src=smb.conf dest=/etc/samba/smb.conf validate='testparm'
+  sudo: yes

@@ -2,3 +2,6 @@
 
 - include: packages.yml
   when: ansible_os_family == 'Debian'
+
+- include: smb_config.yml
+  when: ansible_os_family == 'Debian'
