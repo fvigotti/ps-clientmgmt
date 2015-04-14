@@ -1,7 +1,12 @@
 ---
 
+- name: Aggiornamento sorgenti
+  apt: update_cache=yes
+  sudo: yes
+
 - name: Installazione pacchetti base
   apt: name={{ item }} state=present
+  sudo: yes
   with_items:
     - winbind
     - samba
