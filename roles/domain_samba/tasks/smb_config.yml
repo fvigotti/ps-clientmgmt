@@ -5,5 +5,5 @@
   sudo: yes
 
 - name: Configurazione smb.conf
-  template: src=smb.conf dest=/etc/samba/smb.conf validate='testparm'
+template: src=smb.conf dest=/etc/samba/smb.conf validate='testparm -s'
   sudo: yes
