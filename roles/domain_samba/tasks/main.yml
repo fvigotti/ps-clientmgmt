@@ -5,3 +5,16 @@
 
 - include: smb_config.yml
   when: ansible_os_family == 'Debian'
+
+- include: nsswitch_config.yml
+  when: ansible_os_family == 'Debian'
+
+- include: pam_config.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Riavvio servizi
+  shell: sleep 1
+  notify:
+    - restart samba
+    - restart winbind
+

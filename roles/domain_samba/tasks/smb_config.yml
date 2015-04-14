@@ -7,3 +7,7 @@
 - name: Configurazione smb.conf
   template: src=smb.conf dest=/etc/samba/smb.conf validate='testparm -s %s'
   sudo: yes
+
+- name: Creazione home base
+  shell: mkdir -p /home/{{ domainshort }}
+  sudo: yes
