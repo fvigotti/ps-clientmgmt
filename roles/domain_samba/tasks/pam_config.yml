@@ -1,7 +1,7 @@
 ---
 
 - name: Backup file pam.d originali
-  shell: cp /etc/pam.d/{{ item }} /etc/pam.d/{{ item }}.orig
+  shell: test -f /etc/pam.d/{{ item }} || cp /etc/pam.d/{{ item }} /etc/pam.d/{{ item }}.orig
   sudo: yes
   with_items:
     - common-account

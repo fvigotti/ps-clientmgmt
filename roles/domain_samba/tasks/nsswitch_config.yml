@@ -1,7 +1,7 @@
 ---
 
 - name: Backup nsswitch.conf originale
-  shell: cp /etc/nsswitch.conf /etc/nsswitch.conf.orig
+  shell: test -f /etc/nsswitch.conf.orig || cp /etc/nsswitch.conf /etc/nsswitch.conf.orig
   sudo: yes
 
 - name: Configurazione nsswitch.conf 
