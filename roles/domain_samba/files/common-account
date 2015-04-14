@@ -1,0 +1,3 @@
+# Managed by Ansible.
+account sufficient pam_winbind.so
+account required pam_unix.so

@@ -1,0 +1,9 @@
+---
+
+- name: Backup nsswitch.conf originale
+  shell: cp /etc/nsswitch.conf /etc/nsswitch.conf.orig
+  sudo: yes
+
+- name: Configurazione nsswitch.conf 
+  copy: src=nsswitch.conf dest=/etc/nsswitch.conf
+  sudo: yes

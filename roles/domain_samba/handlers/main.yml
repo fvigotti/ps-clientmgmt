@@ -1,0 +1,9 @@
+---
+
+- name: restart samba
+  service: name=samba state=restarted
+  sudo: yes
+
+- name: restart winbind
+  service: name=winbind state=restarted
+  sudo: yes

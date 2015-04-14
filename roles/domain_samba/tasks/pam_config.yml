@@ -1,0 +1,25 @@
+---
+
+- name: Backup file pam.d originali
+  shell: cp /etc/pam.d/{{ item }} /etc/pam.d/{{ item }}.orig
+  sudo: yes
+  with_items:
+    - common-account
+    - common-auth
+    - common-password
+    - common-session
+
+- name: Configurazione common-account e common-auth
+  copy: src={{ item }} dest=/etc/pam.d/{{ item }}
+  sudo: yes
+  with_items:
+    - common-account
+    - common-auth
+
+- name: Configurazione common-password
+  replace: dest=/etc/pam.d/common-password regexp='^(password.*)$' replace='\1 min=4 max=20'
+  sudo: yes
+
+- name: Configurazione common-session
+  lineinfile: dest=/etc/pam.d/common-session line='session required pam_mkhomedir.so umask=0022 skel=/etc/skel'
+  sudo: yes
