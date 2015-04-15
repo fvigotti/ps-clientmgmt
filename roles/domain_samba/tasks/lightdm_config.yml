@@ -1,10 +1,5 @@
 ---
 
-- name: Cambio configurazione nsswitch
-  replace: dest=/etc/nsswitch.conf regexp="^(hosts:\s+files)\s+mdns4_minimal\s+\([NOTFOUND=return\])\s+dns\s*(.*)$" replace="\1 dns \2 \3"
-  sudo: yes
-  notify: restart networking
-
 - name: Cambio configurazione lightdm
   lineinfile: dest=/etc/lightdm/lightdm.conf.d/90-edubuntu.conf line={{ item }} state=present
   with_items:

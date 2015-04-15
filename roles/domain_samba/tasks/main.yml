@@ -12,6 +12,9 @@
 - include: pam_config.yml
   when: ansible_os_family == 'Debian'
 
+- include: lightdm_config.yml
+  when: ansible_os_family == 'Debian'
+
 - name: Riavvio servizi
   shell: sleep 1
   notify:
