@@ -1,5 +1,5 @@
 ---
 
-domainsrv: clearos.vavassori.local
-domainshort: VAVASSORI
-domainfull: vavassori.local
+domainsrv: pdc.mastri.local
+domainshort: MASTRI
+domainfull: mastri.local
