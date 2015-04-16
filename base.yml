@@ -1,7 +1,7 @@
 ---
 
 - hosts: clients
-  var_files:
+  vars_files:
     - secrets
   roles:
     - base
